@@ -24,7 +24,6 @@
 //Global variables
 
 const paris_coord = [48.864716, 2.349014];
-drawMap(1884);
 
 // ---- MAIN FUNCTIONS ----
 
