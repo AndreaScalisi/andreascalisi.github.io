@@ -1,0 +1,47 @@
+body {
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  background-color: #1a1c1d;
+}
+
+.influencer-body {
+  min-height: 1000vh;
+  background-image:url("./data/influencer.png");
+}
+
+.app-body {
+  min-height: 87vh;
+  margin-top: 10vh;
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+
+footer{
+  color: dimgray;
+  height: 3vh;
+  background-color:black;
+} 
+
+.App-link {
+  color: #09d3ac;
+}
+
+.navbar{
+  height: 5vh;
+}
+
+#mapid{
+  align-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 5vw;
+}
+
+p {
+  justify-content: center;
+  align-items: center;
+  max-width: 50vw;
+  display: inline-block;
+}

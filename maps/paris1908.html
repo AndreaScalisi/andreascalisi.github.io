@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <title>Influencers of the past</title>
+    <nav class="navbar navbar-inverse navbar-fixed-top" >
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/influencer.html">Influencers of the past</a>
+        </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Maps
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/maps/paris1884.html">Paris 1884</a></li>
+            <li class="active"><a href="/maps/paris1908.html">Paris 1908</a></li>
+          </ul>
+        </li>
+        <li><a href="/analysis.html">Analysis</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+      </div>
+    </nav>
+
+    <link rel="stylesheet" href="../index.css">
+
+    <title>Influencers of the past</title>
+
+
+        <! Meta elements -->
+		<meta charset="utf-8">
+
+        <! Leaflet library -->
+ 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    		crossorigin=""/>
+   		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    		crossorigin=""></script>
+        
+        <! Leaflet-Heat library -->
+        <script src="libraries/dist_leaflet_heat/leaflet-heat.js"></script>
+
+        <! Leaflet-PointInPolygon library -->
+        <script src="https://cdn.rawgit.com/hayeswise/Leaflet.PointInPolygon/v1.0.0/wise-leaflet-pip.js"></script>
+
+        <! Math library -->
+        <script src="https://unpkg.com/mathjs@6.2.5/dist/math.js"></script>
+
+        <! MarkerCluster library -->
+    	<link rel="stylesheet" href="libraries/dist_MarkerCluster/MarkerCluster.css" />
+		<link rel="stylesheet" href="libraries/dist_MarkerCluster/MarkerCluster.Default.css" />
+		<script src="libraries/dist_MarkerCluster/leaflet.markercluster-src.js"></script>
+
+        <! Ajax library -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
+       
+    
+	</head>
+
+
+
+  <body>
+    <div class = "app-body">
+       <h1>Paris 1908</h1>
+       <p class="App-paragraph"></p>
+       <div class = "map">
+         <div id="mapid" style ="height: 640px; width: 1000px"></div>
+         <! JS script -->
+         <script src="map.js"></script>
+       </div>
+     </div>
+</body>
+
+  <footer>
+            copyright 2019, Andrea Scalisi and Giacomo Alliata
+  </footer>
+
+</html>
+
+
+
