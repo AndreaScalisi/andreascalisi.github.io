@@ -28,7 +28,7 @@ footer{
 }
 
 .navbar{
-  height: 5vh;
+  min-height: 5vh;
 }
 
 #mapid{
@@ -37,6 +37,7 @@ footer{
   margin: 0 auto;
   margin-bottom: 5vw;
   max-width: 90vw;
+  max-height: 70vh;
 }
 
 p {
