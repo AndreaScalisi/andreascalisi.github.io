@@ -14,7 +14,6 @@ body {
   min-height: 87vh;
   margin-top: 10vh;
   color: white;
-  text-align: center;
   align-items: center;
 }
 
@@ -37,11 +36,13 @@ footer{
   align-items: center;
   margin: 0 auto;
   margin-bottom: 5vw;
+  max-width: 95vw;
 }
 
 p {
-  justify-content: center;
-  align-items: center;
+  text-align: justify;
+  margin: 0 auto;
   max-width: 50vw;
+  margin-top: 5vh;
   display: inline-block;
 }
