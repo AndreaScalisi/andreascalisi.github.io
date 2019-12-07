@@ -85,6 +85,8 @@ async function drawMap(year, stored = true){
 	var quart = await quartiers(mymap, year, stored);
 	var quart_Layer = L.layerGroup(quart);
 
+	//var geotiff_layer = L.tileLayer('data/tiles/{z}/{x}/{y}.png', {tms: true, opacity: 1.0, attribution: 'You should put the <a href="https://gallica.fr">gallica link here</a>', minZoom: 11, maxZoom: 22, minNativeZoom: 11, maxNativeZoom: 16}).addTo(mymap);
+
 	var overlayMap = {
 		"People": people_Layer,
 		"Clusters": clusters_Layer.addTo(mymap),

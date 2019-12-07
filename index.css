@@ -31,11 +31,25 @@ footer{
   min-height: 5vh;
 }
 
+#cover-img{
+  margin-top: 5vh;
+  max-height: 40vh;
+}
+
+#caption-img{
+  margin-top: 0;
+  color:dimgray;
+  font-size: 80%;
+  font-style: italic;
+  text-align: center;
+}
+
 #mapid{
   align-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-bottom: 5vw;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
   max-width: 90vw;
   max-height: 70vh;
 }
