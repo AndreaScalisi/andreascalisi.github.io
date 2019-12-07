@@ -87,7 +87,7 @@ async function drawMap(year, stored = true){
 
 	var overlayMap = {
 		"People": people_Layer,
-		"Clusters": clusters_Layer,
+		"Clusters": clusters_Layer.addTo(mymap),
 		"Density (1884)": density_Layer_1884,
 		"Density (1908)": density_Layer_1908,
 		"Arrondissements": arr_Layer,
