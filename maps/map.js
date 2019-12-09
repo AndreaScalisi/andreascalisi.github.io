@@ -23,31 +23,34 @@
 
 //Global variables
 
-const paris_coord = [48.864716, 2.349014];
+//const paris_coord = [48.864716, 2.349014];
+const paris_coord = [48.860716, 2.329014];
 
 // ---- MAIN FUNCTIONS ----
 
 //Function to draw the map with the clusters
 async function drawMap(year, stored = true){
-	const mymap = L.map('mapid', {minZoom: 12}).setView(L.latLng(paris_coord), 12);
+	const mymap = L.map('mapid', {minZoom: 13}).setView(L.latLng(paris_coord), 13);
 
 	var mapboxUrl = "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
 	var mapboxAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 		'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 		'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
-	var streets = L.tileLayer(mapboxUrl, {maxZoom: 20, attribution: mapboxAttribution, id: 'mapbox/streets-v11'})
-	var light = L.tileLayer(mapboxUrl, {maxZoom: 20, attribution: mapboxAttribution, id: 'mapbox/light-v10'})
-	var dark = L.tileLayer(mapboxUrl, {maxZoom: 20, attribution: mapboxAttribution, id: 'mapbox/dark-v10'})
+	var streets = L.tileLayer(mapboxUrl, {maxZoom: 17, attribution: mapboxAttribution, id: 'mapbox/streets-v11'})
+	var light = L.tileLayer(mapboxUrl, {maxZoom: 17, attribution: mapboxAttribution, id: 'mapbox/light-v10'})
+	var dark = L.tileLayer(mapboxUrl, {maxZoom: 17, attribution: mapboxAttribution, id: 'mapbox/dark-v10'})
 
-	var url_1908 = "";
-	var Map_1908 = L.tileLayer(url_1908);
+	var url_1908 = 'data/tiles1908/{z}/{x}/{y}.png';
+	var Map_1908 = L.tileLayer(url_1908, {tms: true, opacity: 1.0, attribution: '<a href="https://gallica.bnf.fr/ark:/12148/btv1b530697967/">Gallica link</a>', minZoom: 13, maxZoom: 17, minNativeZoom: 13, maxNativeZoom: 17});
 
-	var url_1884 = "";
-	var Map_1884 = L.tileLayer(url_1884);
+	var url_1884 = 'data/tiles1884/{z}/{x}/{y}.png';
+	var Map_1884 = L.tileLayer(url_1884, {tms: true, opacity: 1.0, attribution: '<a href="https://gallica.bnf.fr/ark:/12148/btv1b53063772j/">Gallica link</a>', minZoom: 13, maxZoom: 17, minNativeZoom: 13, maxNativeZoom: 17});
 
-	//var url_test = "https://exports.georeferencer.com/494969140585-2019-11-05T12:33:57.956925Z.tif";
-	//var test = L.leafletGeotiff('data/carte_test.tif');
-	//test.addTo(mymap);
+	if(year == 1884){
+		Map_1884.addTo(mymap);
+	}else{
+		Map_1908.addTo(mymap);
+	}
 
 	var baseMap = {
 		"Streets": streets,
@@ -85,7 +88,7 @@ async function drawMap(year, stored = true){
 	var quart = await quartiers(mymap, year, stored);
 	var quart_Layer = L.layerGroup(quart);
 
-	//var geotiff_layer = L.tileLayer('data/tiles/{z}/{x}/{y}.png', {tms: true, opacity: 1.0, attribution: 'You should put the <a href="https://gallica.fr">gallica link here</a>', minZoom: 11, maxZoom: 22, minNativeZoom: 11, maxNativeZoom: 16}).addTo(mymap);
+	
 
 	var overlayMap = {
 		"People": people_Layer,
