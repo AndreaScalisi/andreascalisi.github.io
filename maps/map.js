@@ -3,33 +3,31 @@
 
 -- MAIN FUNCTIONS --
 
-	* drawMap()
-	* famous_people()
-	* heatMap()
-	* arrondissements()
-	* quartiers()
+	* drawMap(year, stored = true)
+	* famous_people(year)
+	* heatMap(year)
+	* arrondissements(map, year, stored)
+	* quartiers(map, year, stored)
 
 
 -- UTILITARY FUNCTIONS --
 	
-	* getData()
-	* wikiSearch()
-	* popupContent()
-	* name_format()
-	* checkBounds()
-	* parse_rows()
-	* getColor()
+	* getData(year)
+	* wikiSearch(name)
+	* popupContent(name,adr)
+	* name_format(name,adr)
+	* checkBounds(people_coord)
+	* parse_rows(rows)
+	* getColor(d, all)
 */
 
-//Global variables
-
-//const paris_coord = [48.864716, 2.349014];
 const paris_coord = [48.860716, 2.329014];
 
 // ---- MAIN FUNCTIONS ----
 
 //Function to draw the map with the clusters
 async function drawMap(year, stored = true){
+	//Create the map
 	const mymap = L.map('mapid', {minZoom: 13}).setView(L.latLng(paris_coord), 13);
 
 	var mapboxUrl = "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
@@ -51,7 +49,7 @@ async function drawMap(year, stored = true){
 	}else{
 		Map_1908.addTo(mymap);
 	}
-
+	
 	var baseMap = {
 		"Streets": streets,
 		"Light": light,
@@ -62,15 +60,7 @@ async function drawMap(year, stored = true){
 
 	streets.addTo(mymap);
 
-
-	//Use TileLayer.WMS to add the georeferenced map (need WMS of the georeferenced map!): https://leafletjs.com/reference-1.6.0.html#tilelayer-wms
-		//See tutorial here: https://leafletjs.com/examples/wms/wms.html
-
-	//Overlay ancient map of Paris: https://github.com/kartena/leaflet-tilejson
-	//var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
-    //imageBounds = [[47, 2], [49, 3]];
-	//L.imageOverlay(imageUrl, imageBounds).addTo(mymap);
-
+	//Add data layers 
 	var people = await famous_people(year);
 	var people_Layer = L.layerGroup(people);
 
@@ -88,17 +78,18 @@ async function drawMap(year, stored = true){
 	var quart = await quartiers(mymap, year, stored);
 	var quart_Layer = L.layerGroup(quart);
 
-	
-
 	var overlayMap = {
 		"People": people_Layer,
-		"Clusters": clusters_Layer.addTo(mymap),
+		"Clusters": clusters_Layer,
 		"Density (1884)": density_Layer_1884,
 		"Density (1908)": density_Layer_1908,
 		"Arrondissements": arr_Layer,
 		"Neighborhoods": quart_Layer
 	}
 
+	clusters_Layer.addTo(mymap);
+
+	//Add control of the layers
 	L.control.layers(baseMap, overlayMap).addTo(mymap);
 }
 
@@ -231,6 +222,7 @@ async function arrondissements(map, year, stored){
 	    }
 	    return div;
 	}
+	//legend.addTo(map);
 
 	return polygons;	
 
