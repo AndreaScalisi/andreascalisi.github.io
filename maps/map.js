@@ -28,7 +28,7 @@ const paris_coord = [48.860716, 2.329014];
 //Function to draw the map with the clusters
 async function drawMap(year, stored = true){
 	//Create the map
-	const mymap = L.map('mapid', {minZoom: 13}).setView(L.latLng(paris_coord), 13);
+	const mymap = L.map('mapid', {minZoom: 12}).setView(L.latLng(paris_coord), 12);
 
 	var mapboxUrl = "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
 	var mapboxAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -39,10 +39,12 @@ async function drawMap(year, stored = true){
 	var dark = L.tileLayer(mapboxUrl, {maxZoom: 17, attribution: mapboxAttribution, id: 'mapbox/dark-v10'})
 
 	var url_1908 = 'data/tiles1908/{z}/{x}/{y}.png';
-	var Map_1908 = L.tileLayer(url_1908, {tms: true, opacity: 1.0, attribution: '<a href="https://gallica.bnf.fr/ark:/12148/btv1b530697967/">Gallica link</a>', minZoom: 13, maxZoom: 17, minNativeZoom: 13, maxNativeZoom: 17});
+	var Map_1908 = L.tileLayer(url_1908, {tms: true, opacity: 1.0, attribution: '<a href="https://gallica.bnf.fr/ark:/12148/btv1b530697967/">Gallica link</a>', 
+					minZoom: 12, maxZoom: 17, minNativeZoom: 12, maxNativeZoom: 17});
 
 	var url_1884 = 'data/tiles1884/{z}/{x}/{y}.png';
-	var Map_1884 = L.tileLayer(url_1884, {tms: true, opacity: 1.0, attribution: '<a href="https://gallica.bnf.fr/ark:/12148/btv1b53063772j/">Gallica link</a>', minZoom: 13, maxZoom: 17, minNativeZoom: 13, maxNativeZoom: 17});
+	var Map_1884 = L.tileLayer(url_1884, {tms: true, opacity: 1.0, attribution: '<a href="https://gallica.bnf.fr/ark:/12148/btv1b53063772j/">Gallica link</a>', 
+					minZoom: 12, maxZoom: 17, minNativeZoom: 12, maxNativeZoom: 17});
 
 	if(year == 1884){
 		Map_1884.addTo(mymap);

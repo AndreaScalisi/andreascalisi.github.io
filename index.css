@@ -61,3 +61,7 @@ p {
   margin-top: 5vh;
   display: inline-block;
 }
+
+.list{
+  list-style-position: inside;
+}
