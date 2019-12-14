@@ -70,7 +70,6 @@ p {
 .list{
   list-style-position: inside;
   text-align: left;
-  margin-top: 3vh;
   display: inline-block;
 }
 
