@@ -322,7 +322,8 @@ async function getData(year) {
 	return { addresses, names, lat, long };
 }
 
-//Function to search in Wikipedia for more information on the people 
+//Function to search in Wikipedia for more information on the people
+//ATTENTION: this function does not work but we left it as it could be one of the further improvements for this project
 function wikiSearch(name){
 	name = name_format(name)
 	//Url for the wiki search: name is the search term
@@ -352,9 +353,6 @@ function popupContent(name,adr){
 		adr = adr.trim()
 	}
 	content = "<p><strong>Name: </strong>" + name + "<br /><strong>Address: </strong>" + adr + "</p>"
-	//link = ""
-	//wikiSearch(name)
-	//content = content + "<br /><strong>More info at</strong>: " + link
 
     return content;
 }
