@@ -67,6 +67,8 @@ async function drawMap(year, stored = true){
 	var people_Layer = L.layerGroup(people);
 
 	var clusters_Layer = L.markerClusterGroup({
+		disableClusteringAtZoom: 17,
+		spiderfyOnMaxZoom: false, //Do not show people as spirals when MaxZoom is reached
 		singleMarkerMode: false //Show single elements as clusters of size 1
 	});
 	clusters_Layer.addLayers(people);
